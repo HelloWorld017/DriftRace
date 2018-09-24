@@ -18,7 +18,7 @@ class HostBase extends EventEmitter {
 		return new Promise((resolve, reject) => {
 			this.socket.once('registerPeer', peerInfo => {
 				this.peerInfo = peerInfo;
-				this.store.commit('network/party', {
+				this.store.commit('network/info', {
 					token: this.peerInfo
 				});
 

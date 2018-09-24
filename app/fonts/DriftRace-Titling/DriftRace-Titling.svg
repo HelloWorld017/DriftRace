@@ -1,0 +1,60 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<metadata>
+Created by FontForge 20170731 at Mon Sep 24 19:06:35 2018
+ By Aleksey,,,
+Typeface ?(your company). 2018. All Rights Reserved
+</metadata>
+<defs>
+<font id="DriftRace-Titling" horiz-adv-x="569" >
+  <font-face 
+    font-family="DriftRace-Titling"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="2048"
+    panose-1="2 0 0 0 0 0 0 0 0 0"
+    ascent="1638"
+    descent="-410"
+    cap-height="1526"
+    bbox="-512 -20.0169 1675 1559.04"
+    underline-thickness="150"
+    underline-position="-442"
+    unicode-range="U+0020-0072"
+  />
+<missing-glyph horiz-adv-x="840" 
+d="M452 1019l-330 123l25 52l330 -133l69 395h56l-75 -392l364 140l13 -54l-375 -138l188 -317l-49 -31l-179 321l-277 -323l-43 33z" />
+    <glyph glyph-name=".notdef" horiz-adv-x="840" 
+d="M452 1019l-330 123l25 52l330 -133l69 395h56l-75 -392l364 140l13 -54l-375 -138l188 -317l-49 -31l-179 321l-277 -323l-43 33z" />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" 
+ />
+    <glyph glyph-name="space" unicode=" " 
+ />
+    <glyph glyph-name="space" unicode="&#xa0;" 
+ />
+    <glyph glyph-name="D" unicode="D" horiz-adv-x="1722" 
+d="M1188 1280q264 0 375.5 -93t111.5 -302q0 -107 -24 -246q-62 -344 -210.5 -491.5t-477.5 -147.5h-545l225 1280h545zM1135 952h-162l-109 -624h162q80 0 119 19.5t51 88.5l72 408q2 12 2 33q0 47 -33 61t-102 14zM356 6l-868 92h885zM426 401l-868 93h884zM461 598
+l-868 92h884zM496 795l-868 92h884zM530 991l-867 92h882zM391 205l-868 92h885zM563 1188l-866 92h883z" />
+    <glyph glyph-name="F" unicode="F" horiz-adv-x="730" 
+d="M59 0l147 848h-152l40 234l152 1l13 95q25 173 138 275q121 108 315 106q50 0 163 -22l-25 -249q-46 12 -78 12q-73 0 -120.5 -33.5t-60.5 -96.5l-15 -88h205l-40 -234h-205l-147 -848h-330z" />
+    <glyph glyph-name="l" unicode="I" horiz-adv-x="556" 
+d="M334 0h-330l188 1082h330zM221 1355q-2 73 51.5 122t129.5 49q77 0 128.5 -44t53.5 -115q2 -74 -51 -122.5t-130 -48.5q-75 0 -127.5 43.5t-54.5 115.5z" />
+    <glyph glyph-name="R" unicode="R" horiz-adv-x="763" 
+d="M768 777q-53 8 -102 10q-148 4 -226 -102l-122 -685h-329l188 1082l307 1l-25 -142q106 164 250 164q41 0 102 -14z" />
+    <glyph glyph-name="T" unicode="T" horiz-adv-x="692" 
+d="M604 1351l-47 -269h173l-41 -234h-173l-84 -497q-7 -51 6.5 -77t67.5 -28q21 -1 86 5l-24 -244q-83 -27 -177 -25q-153 2 -229 90t-62 239l88 537h-134l40 234h134l47 269h329z" />
+    <glyph glyph-name="a" unicode="a" horiz-adv-x="1059" 
+d="M750 0q-3 88 19 198q-84 -103 -199.5 -161t-250.5 -57q-136 0 -217 84t-61 210q25 153 169.5 239t366.5 91h257l29 158q21 133 -53 209.5t-213 76.5q-136 0 -246 -72.5t-138 -190.5l-54 2q28 139 154 227t284 88q165 0 253 -93.5t65 -248.5l-99 -578l-7 -68
+q-5 -53 4 -105l-1 -9h-62zM318 33q134 -2 255 64.5t206 194.5l46 257h-242q-202 -4 -333.5 -77.5t-155.5 -201.5q-18 -99 47.5 -167t176.5 -70z" />
+    <glyph glyph-name="c" unicode="c" horiz-adv-x="1018" 
+d="M430 34q142 0 246.5 81t139.5 212h54q-36 -155 -157 -251t-282 -96q-149 0 -241.5 92.5t-111.5 256.5q-11 95 3 191l6 42q26 159 99.5 285t178 190.5t230.5 64.5q163 0 256.5 -106t81.5 -271h-54q13 144 -66.5 233.5t-216.5 89.5q-189 0 -314 -154.5t-152 -413.5l-4 -73
+q0 -176 79 -274.5t225 -98.5z" />
+    <glyph glyph-name="e" unicode="e" horiz-adv-x="1011" 
+d="M458 -20q-130 0 -224 73t-135.5 199.5t-21.5 265.5l8 50q24 146 102.5 273t186.5 194t231 67q164 0 257 -121t79 -310l-3 -31l-9 -63h-786l-11 -59q-14 -84 -1 -170q22 -143 109.5 -228.5t216.5 -86.5q187 -2 337 148l36 -28q-148 -173 -372 -173zM605 1048
+q-154 0 -275.5 -115.5t-180.5 -301.5h730l3 13q13 72 2 144q-18 118 -93.5 189t-185.5 71z" />
+    <glyph glyph-name="r" unicode="r" horiz-adv-x="1310" 
+d="M737 623h-490l-108 -623h-53l251 1456h446q132 -1 230.5 -54.5t142.5 -148.5t24 -217q-25 -148 -131.5 -257.5t-255.5 -142.5l269 -622l-2 -14h-55zM256 677h428q165 0 288.5 101t153.5 258q30 165 -69 265.5t-290 100.5h-385z" />
+  </font>
+</defs></svg>

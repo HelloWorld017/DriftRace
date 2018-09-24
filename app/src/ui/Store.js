@@ -3,14 +3,19 @@ import Vuex from "vuex";
 export default function createStore() {
 	const network = {
 		namespaced: true,
-		
+
 		state: {
-			token: ''
+			token: '',
+			shards: []
 		},
 
 		mutations: {
-			party(state, {token}) {
+			info(state, {token}) {
 				state.token = token;
+			},
+
+			newShard(state, {token}) {
+
 			}
 		}
 	};
