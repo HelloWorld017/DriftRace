@@ -6,7 +6,8 @@ export default function createStore() {
 
 		state: {
 			token: '',
-			shards: []
+			prefix: `${location.hostname}/`,
+			nodes: []
 		},
 
 		mutations: {
@@ -14,8 +15,14 @@ export default function createStore() {
 				state.token = token;
 			},
 
-			newShard(state, {token}) {
+			addNode(state, {token, deviceName, playerName}) {
+				this.nodes.push({token, deviceName, playerName});
+			},
 
+			updateNode(state, {token, deviceName, playerName}) {
+				const node = this.nodes.find(v => v.token === token);
+				node.deviceName = deviceName;
+				node.playerName = playerName;
 			}
 		}
 	};

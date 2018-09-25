@@ -1,13 +1,10 @@
 import Packet from "./Packet";
 import {Vector3} from "babylonjs";
 
-import {encodeFloat, decodeFloat} from "../../utils/uint8";
-
 class PacketAcceleration extends Packet {
 	constructor() {
 		super();
 
-		this.buffer = new Uint8Array(10);
 		this.motion = new Vector3;
 	}
 
@@ -17,9 +14,7 @@ class PacketAcceleration extends Packet {
 		this.putFloat(this.motion.z);
 	}
 
-	deserialize() {
-		super.deserialize();
-
+	deserializePayload() {
 		this.motion = new Vector3(
 			this.getFloat(),
 			this.getFloat(),
@@ -27,8 +22,16 @@ class PacketAcceleration extends Packet {
 		);
 	}
 
+	resetBuffer() {
+		this.buffer = new Uint8Array(13);
+	}
+
 	get NETWORK_ID() {
 		return 0x30;
+	}
+
+	get name() {
+		return "Acceleration";
 	}
 }
 

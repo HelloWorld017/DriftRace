@@ -1,5 +1,7 @@
 import EventEmitter from "events";
 
+import packets from "./packets";
+
 const availableServers = [
 	'stun.l.google.com:19302',
 	'stun1.l.google.com:19302',
@@ -70,12 +72,23 @@ class Connection extends EventEmitter {
 	}
 
 	onClosed() {
-
+		this.emit('_closed');
 	}
 
 	setChannelEvents(channel) {
 		channel.onopen = () => this.onEstablished();
 		channel.onclose = () => this.onClosed();
+		channel.onmessage = evt => {
+			const packetId = evt.data[0];
+			const packet = packets[packetId];
+
+			if(!packet) return;
+
+			packet.buffer = evt.data;
+			packet.deserialize();
+
+			this.emit(packet.name, packet);
+		};
 
 		return channel;
 	}

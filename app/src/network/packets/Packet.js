@@ -1,11 +1,16 @@
+const textEncoder = new TextEncoder();
+const textDecoder = new TextDecoder("utf-8");
+
 class Packet {
 	constructor() {
 		this.buffer = null;
+		this.bufferArray = null;
 		this.view = null;
 		this.offset = 0;
 	}
 
 	serialize() {
+		this.reset();
 		this.serializeHeader();
 		this.serializePayload();
 	}
@@ -31,22 +36,23 @@ class Packet {
 	setBuffer(buffer) {
 		this.buffer = buffer;
 		this.view = new DataView(buffer);
+		this.bufferArray = new Uint8Array(buffer);
 	}
 
-	clean() {
-		this.resetPacket();
+	reset() {
+		this.resetBuffer();
 		this.offset = 0;
 	}
 
-	resetPacket() {}
+	resetBuffer() {}
 
 	put(byte) {
-		this.view.setUInt8(this.offset, byte);
+		this.view.setUint8(this.offset, byte);
 		this.offset++;
 	}
 
 	get() {
-		this.view.getUInt8(this.offset);
+		this.view.getUint8(this.offset);
 		this.offset++;
 	}
 
@@ -106,6 +112,41 @@ class Packet {
 
 	getBool() {
 		return this.get() === 0x01;
+	}
+
+	putString(s) {
+		const buffer = textEncoder.encode(s);
+		this.putUShort(buffer.length);
+
+		this.bufferArray.set(this.offset, buffer);
+		this.offset += buffer.length;
+	}
+
+	getString() {
+		const len = this.getUShort();
+		const buffer = this.bufferArray.slice(this.offset, this.offset + len);
+
+		this.offset += len;
+
+		return textDecoder.decode(buffer);
+	}
+
+	putBuffer(buffer) {
+		this.putUShort(buffer.length);
+
+		this.bufferArray.set(this.offset, buffer);
+	}
+
+	getBuffer() {
+		const len = this.getUShort();
+		const buffer = this.bufferArray.slice(this.offset, this.offset + len);
+
+		this.offset += len;
+		return buffer;
+	}
+
+	static stringLength(string) {
+		return textEncoder.encode(e).length + 2;
 	}
 
 	get NETWORK_ID() {

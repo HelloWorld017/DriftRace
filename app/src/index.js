@@ -6,6 +6,7 @@ import mobileInit from "./index.mobile";
 import Vue from "vue";
 import Vuex from "vuex";
 
+import "../less/index.less";
 
 Vue.use(Vuex);
 
