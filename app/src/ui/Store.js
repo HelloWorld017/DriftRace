@@ -6,7 +6,7 @@ export default function createStore() {
 
 		state: {
 			token: '',
-			prefix: `${location.hostname}/`,
+			prefix: `${location.hostname}${location.port ? `:${location.port}` : ''}/`,
 			nodes: []
 		},
 
@@ -16,11 +16,11 @@ export default function createStore() {
 			},
 
 			addNode(state, {token, deviceName, playerName}) {
-				this.nodes.push({token, deviceName, playerName});
+				state.nodes.push({token, deviceName, playerName});
 			},
 
 			updateNode(state, {token, deviceName, playerName}) {
-				const node = this.nodes.find(v => v.token === token);
+				const node = state.nodes.find(v => v.token === token);
 				node.deviceName = deviceName;
 				node.playerName = playerName;
 			}

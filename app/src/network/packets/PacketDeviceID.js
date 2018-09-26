@@ -1,6 +1,6 @@
 import Packet from "./Packet";
 
-class PacketDeviceIdentification extends Packet{
+class PacketDeviceID extends Packet{
 	constructor() {
 		super();
 
@@ -14,8 +14,8 @@ class PacketDeviceIdentification extends Packet{
 	}
 
 	deserializePayload() {
-		this.deviceName = this.getString().slice(0, 16).replace(/[^A-z0-9a-z _-]/, '');
-		this.playerName = this.getString().slice(0, 16).replace(/[^A-Z0-9a-z-_]/, '');
+		this.deviceName = this.getString().slice(0, 24).replace(/[^A-z0-9a-z _-]/g, '');
+		this.playerName = this.getString().slice(0, 16).replace(/[^A-Z0-9a-z-_]/g, '');
 
 		if(this.deviceName) this.deviceName = 'Unknown Device';
 		if(this.playerName === '') this.playerName = 'Unnamed';
@@ -32,8 +32,8 @@ class PacketDeviceIdentification extends Packet{
 	}
 
 	get name() {
-		return "DeviceIdentification";
+		return "DeviceID";
 	}
 }
 
-export default PacketDeviceIdentification;
+export default PacketDeviceID;

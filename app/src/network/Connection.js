@@ -66,6 +66,11 @@ class Connection extends EventEmitter {
 		};
 	}
 
+	packet(pk) {
+		pk.serialize();
+		this.channel.send(pk.buffer);
+	}
+
 	onEstablished() {
 		this.established = true;
 		this.emit('_established');

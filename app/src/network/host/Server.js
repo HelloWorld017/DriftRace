@@ -44,7 +44,7 @@ class Server extends HostBase {
 			this.emit('connectedNode');
 		});
 
-		connection.on('DeviceIdentification', pk => {
+		connection.on('DeviceID', pk => {
 			this.store.commit('network/updateNode', {
 				token: connection.remote,
 				name: pk.playerName,

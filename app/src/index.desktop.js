@@ -10,6 +10,7 @@ export default async function initDesktop(DriftRace) {
 
 	new Vue({
 		el: '#app',
+		store: DriftRace.Ui.Store,
 		render(h) {
 			return h(DesktopView);
 		}

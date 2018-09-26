@@ -1,10 +1,10 @@
 import PacketAcceleration from "./PacketAcceleration";
-import PacketDeviceIdentification from "./PacketDeviceIdentification";
+import PacketDeviceID from "./PacketDeviceID";
 import PacketOrientation from "./PacketOrientation";
 
 const packets = [
 	PacketAcceleration,
-	PacketDeviceIdentification,
+	PacketDeviceID,
 	PacketOrientation
 ].reduce((object, packet) => {
 	object[packet.NETWORK_ID] = packet;

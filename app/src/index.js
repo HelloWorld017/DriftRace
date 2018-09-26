@@ -14,10 +14,10 @@ const DriftRace = {};
 DriftRace.Ui = {};
 DriftRace.Ui.Store = createStore();
 
+window.DriftRace = DriftRace;
+
 if(checkMobile()) {
 	mobileInit(DriftRace);
 } else {
 	desktopInit(DriftRace);
 }
-
-window.DriftRace = DriftRace;

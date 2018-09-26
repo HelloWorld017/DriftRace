@@ -1,8 +1,6 @@
 <template>
-	<main class="Splash">
-		<div class="Background">
-			<div class="Background__gradient"></div>
-		</div>
+	<main class="Splash" @click="start" @mousemove="timer = false">
+		<background></background>
 
 		<div class="Logo">
 			<div class="Logo__left">
@@ -13,7 +11,10 @@
 		</div>
 
 		<span class="Tip">
-			Touch Anywhere to start
+			Touch anywhere to continue
+			<template v-if="timer">
+				/ Continue in {{timeLeft}}s...
+			</template>
 		</span>
 	</main>
 </template>
@@ -60,15 +61,13 @@
 			clip-path: polygon(~"calc(50% + 5rem)" 0, ~"calc(50% - 5rem)" 100%, 100% 100%, 100% 0);
 			margin-left: 10px;
 		}
-
-		user-select: none;
 	}
 
 	.Tip {
 		color: var(--gray-100);
 
 		font-family: var(--font-title);
-		font-size: 2.4rem;
+		font-size: 1.7rem;
 		font-style: italic;
 		font-weight: bold;
 
@@ -91,22 +90,8 @@
 		cursor: pointer;
 	}
 
-	.Background, .Background__gradient {
-		position: absolute;
-		top: -6px;
-		left: -6px;
-		width: ~"calc(100vw + 15px)";
-		height: ~"calc(100vh + 15px)";
-	}
-
 	.Background {
 		background-image: url("../images/background0.jpg");
-		background-size: cover;
-		filter: blur(5px);
-
-		&__gradient {
-			background: radial-gradient(rgba(23, 23, 86, 0.5) 0%, rgba(14, 14, 15, 0.5) 75%);
-		}
 	}
 
 	@keyframes breath {
@@ -139,3 +124,41 @@
 		}
 	}
 </style>
+
+<script>
+	import Background from "../components/Background.vue";
+
+	export default {
+		data() {
+			return {
+				timeLeft: 5,
+				timer: true
+			};
+		},
+
+		methods: {
+			start() {
+				this.$emit('start');
+			},
+
+			timeout() {
+				this.timeLeft--;
+				if(!this.timer) return;
+
+				if(this.timeLeft > 0) {
+					setTimeout(() => this.timeout(), 1000);
+				} else {
+					this.start();
+				}
+			}
+		},
+
+		mounted() {
+			setTimeout(() => this.timeout(), 1000);
+		},
+
+		components: {
+			Background
+		}
+	};
+</script>
