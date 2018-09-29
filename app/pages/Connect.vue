@@ -18,7 +18,7 @@
 			</text-input>
 
 			<transition name="Fade" mode="out-in">
-				<a class="Connect__button" @click="connect" v-if="!connecting">연결</a>
+				<text-button @click="connect" v-if="!connecting">연결</text-button>
 				<spinner v-else></spinner>
 			</transition>
 		</div>
@@ -63,13 +63,6 @@
 		&__input {
 			flex: 1;
 		}
-
-		&__button {
-			color: var(--cyan-400);
-			font-family: var(--font-content);
-			font-weight: 800;
-			font-size: 1.4rem;
-		}
 	}
 
 	.Fade {
@@ -94,6 +87,7 @@
 <script>
 	import Background from "../components/Background.vue";
 	import Spinner from "../components/Spinner.vue";
+	import TextButton from "../components/TextButton.vue";
 	import TextInput from "../components/TextInput.vue";
 
 	export default {
@@ -123,6 +117,7 @@
 		components: {
 			Background,
 			Spinner,
+			TextButton,
 			TextInput
 		}
 	};

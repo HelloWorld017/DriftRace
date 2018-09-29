@@ -15,14 +15,14 @@ export default function createStore() {
 				state.token = token;
 			},
 
-			addNode(state, {token, deviceName, playerName}) {
-				state.nodes.push({token, deviceName, playerName});
+			addNode(state, node) {
+				state.nodes.push(node);
 			},
 
-			updateNode(state, {token, deviceName, playerName}) {
+			updateNode(state, {token, playerName, deviceName}) {
 				const node = state.nodes.find(v => v.token === token);
-				node.deviceName = deviceName;
 				node.playerName = playerName;
+				node.deviceName = deviceName;
 			}
 		}
 	};

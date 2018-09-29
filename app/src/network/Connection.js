@@ -85,10 +85,11 @@ class Connection extends EventEmitter {
 		channel.onclose = () => this.onClosed();
 		channel.onmessage = evt => {
 			const packetId = evt.data[0];
-			const packet = packets[packetId];
+			const packetClass = packets[packetId];
 
 			if(!packet) return;
 
+			packet = new packetClass();
 			packet.buffer = evt.data;
 			packet.deserialize();
 

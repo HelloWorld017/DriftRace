@@ -1,11 +1,10 @@
 import Packet from "./Packet";
-import {Vector3} from "babylonjs";
 
 class PacketAcceleration extends Packet {
 	constructor() {
 		super();
 
-		this.motion = new Vector3;
+		this.motion = {};
 	}
 
 	serializePayload() {
@@ -15,11 +14,9 @@ class PacketAcceleration extends Packet {
 	}
 
 	deserializePayload() {
-		this.motion = new Vector3(
-			this.getFloat(),
-			this.getFloat(),
-			this.getFloat()
-		);
+		this.motion.x = this.getFloat();
+		this.motion.y = this.getFloat();
+		this.motion.z = this.getFloat();
 	}
 
 	resetBuffer() {

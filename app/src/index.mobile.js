@@ -14,7 +14,7 @@ export default async function initMobile(DriftRace) {
 	await DriftRace.Host.initClient();
 
 	let remoteToken = location.href.split('/').pop();
-	if(remoteToken.startsWith('#') || !remoteToken) remoteToken = location.href.split('#').pop();
+	if(remoteToken.startsWith('#')) remoteToken = location.href.split('#').pop();
 
 	let serverExists = false;
 

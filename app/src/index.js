@@ -14,6 +14,7 @@ const DriftRace = {};
 DriftRace.Ui = {};
 DriftRace.Ui.Store = createStore();
 
+Vue.prototype.$drift = DriftRace;
 window.DriftRace = DriftRace;
 
 if(checkMobile()) {

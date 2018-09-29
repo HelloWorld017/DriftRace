@@ -106,11 +106,11 @@ class Packet {
 		this.offset += 4;
 	}
 
-	putBool(b) {
+	putBoolean(b) {
 		return this.put(b ? 0x01 : 0x00);
 	}
 
-	getBool() {
+	getBoolean() {
 		return this.get() === 0x01;
 	}
 
