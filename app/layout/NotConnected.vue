@@ -78,6 +78,12 @@
 			font-family: var(--font-monospace);
 			font-weight: 500;
 		}
+
+		&__loading {
+			color: var(--gray-100);
+			font-family: var(--font-title);
+			font-weight: 100;
+		}
 	}
 </style>
 

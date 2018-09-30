@@ -29,9 +29,9 @@
 		},
 
 		mounted() {
-			const node = this.$drift.Host.nodes.find(v => v.token === this.token);
+			const node = this.$game.Host.nodes.find(v => v.token === this.token);
 			this.intervalId = setInterval(() => {
-				
+
 			}, 75);
 		},
 

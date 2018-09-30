@@ -30,7 +30,7 @@
 
 			<transition name="FadeTranslate--up">
 				<div class="NodeCards" v-if="nodes.length !== 0">
-					<node-card v-for="node in nodes" :node="node"></node-card>
+					<node-card v-for="node in nodes" :key="node.token" :node="node"></node-card>
 				</div>
 			</transition>
 		</div>

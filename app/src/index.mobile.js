@@ -1,10 +1,8 @@
-import Client from "./network/host/Client";
+import {Client} from "recogi";
 import MobileView from "../pages/Mobile.vue";
-import PacketDeviceID from "./network/packets/PacketDeviceID";
 import ShowInDesktop from "../pages/ShowInDesktop.vue";
 import Vue from "vue";
 
-import platform from "platform";
 import swal from "sweetalert2";
 
 export default async function initMobile(DriftRace) {
@@ -19,30 +17,14 @@ export default async function initMobile(DriftRace) {
 	let serverExists = false;
 
 	if(remoteToken) {
-		serverExists = await new Promise((resolve, reject) => {
-			DriftRace.Host.socket.once('existsPeer', payload => {
-				resolve(payload.exists);
-			});
-
-			DriftRace.Host.socket.emit('existsPeer', remoteToken);
-		});
+		serverExists = await DriftRace.Host.checkExists(remoteToken);
 
 		if(!serverExists) {
 			swal('잘못된 주소', `${remoteToken}라는 서버가 존재하지 않습니다! 주소를 한번 더 확인해주세요!`, 'error');
 		}
 	}
 
-	DriftRace.ConnectShard = async username => {
-		DriftRace.Host.on('_established', () => {
-			const pk = new PacketDeviceID();
-			pk.deviceName = `${platform.manufacturer} ${platform.product}`;
-			pk.playerName = username;
-
-			DriftRace.Host.parentShard.packet(pk);
-		});
-
-		await DriftRace.Host.connectToShard(remoteToken);
-	};
+	DriftRace.ConnectShard = username => DriftRace.Host.connectToShard(remoteToken, username);
 
 	new Vue({
 		el: '#app',

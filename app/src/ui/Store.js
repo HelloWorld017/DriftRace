@@ -11,18 +11,17 @@ export default function createStore() {
 		},
 
 		mutations: {
-			info(state, {token}) {
+			info(state, token) {
 				state.token = token;
 			},
 
 			addNode(state, node) {
-				state.nodes.push(node);
-			},
-
-			updateNode(state, {token, playerName, deviceName}) {
-				const node = state.nodes.find(v => v.token === token);
-				node.playerName = playerName;
-				node.deviceName = deviceName;
+				state.nodes.push({
+					index: node.index,
+					playerName: node.playerName,
+					deviceName: node.deviceName,
+					token: node.token
+				});
 			}
 		}
 	};

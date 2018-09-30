@@ -1,5 +1,5 @@
 import createStore from "./ui/Store";
-import checkMobile from "./utils/isMobile"
+import {isMobile} from "recogi";
 import desktopInit from "./index.desktop";
 import mobileInit from "./index.mobile";
 
@@ -14,10 +14,10 @@ const DriftRace = {};
 DriftRace.Ui = {};
 DriftRace.Ui.Store = createStore();
 
-Vue.prototype.$drift = DriftRace;
+Vue.prototype.$game = DriftRace;
 window.DriftRace = DriftRace;
 
-if(checkMobile()) {
+if(isMobile()) {
 	mobileInit(DriftRace);
 } else {
 	desktopInit(DriftRace);
